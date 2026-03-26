@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69427816766",
+    "project_id": "elcapibara-1f8a1",
+    "storage_bucket": "elcapibara-1f8a1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69427816766:android:23ade3e1e42fe97585e46f",
+        "android_client_info": {
+          "package_name": "com.autonoma.elcapibara"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALbnl_053hY4Ix6vWIemKdEVM-0cnld84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
