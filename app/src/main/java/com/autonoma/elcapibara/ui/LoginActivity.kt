@@ -46,7 +46,9 @@ class LoginActivity : AppCompatActivity() {
 
         // Acción de Registrarse
         tvRegistrarse.setOnClickListener {
-            Toast.makeText(this, "Próximamente: Pantalla de Registro", Toast.LENGTH_SHORT).show()
+            // Borramos el Toast temporal y ponemos el Intent para viajar a la nueva pantalla
+            val intent = Intent(this, RegistroActivity::class.java)
+            startActivity(intent)
         }
     }
 

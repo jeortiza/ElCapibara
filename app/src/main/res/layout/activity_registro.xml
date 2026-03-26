@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgFondoRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo_form02"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTituloRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="REGISTRO DE USUARIO"
+        android:textColor="#E8C396"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:shadowColor="#80000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogoRegistro"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/logo_capibara02"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloRegistro" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogoRegistro">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="NOMBRES COMPLETOS"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+                app:startIconTint="#4A3424">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombresRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingresa tus nombres"
+                    android:inputType="textPersonName"
+                    android:paddingStart="0dp"
+                    android:textSize="14sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#D3D3D3" android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CORREO ELECTRÓNICO"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                app:startIconDrawable="@android:drawable/ic_dialog_email"
+                app:startIconTint="#4A3424">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCorreoRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingresa tu correo"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="0dp"
+                    android:textSize="14sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#D3D3D3" android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="CONTRASEÑA"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#4A3424"
+                app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+                app:startIconTint="#4A3424">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPasswordRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingresa tu contraseña"
+                    android:inputType="textPassword"
+                    android:paddingStart="0dp"
+                    android:textSize="14sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#D3D3D3" android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="REPITA SU CONTRASEÑA"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:boxBackgroundMode="none"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#4A3424"
+                app:startIconDrawable="@android:drawable/ic_lock_idle_lock"
+                app:startIconTint="#4A3424">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etRepetirPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirma tu contraseña"
+                    android:inputType="textPassword"
+                    android:paddingStart="0dp"
+                    android:textSize="14sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#D3D3D3" android:layout_marginBottom="24dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCrearCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="CREAR CUENTA"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:backgroundTint="#4A3424"
+                app:cornerRadius="25dp" />
+
+            <TextView
+                android:id="@+id/tvVolverLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="¿Ya tienes cuenta? Iniciar sesión"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
