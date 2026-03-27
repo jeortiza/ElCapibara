@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.MenuPrincipalActivity">
 
     <ImageView
         android:id="@+id/imgFondoMenu"
@@ -34,38 +36,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgPerfilMenu"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/logo_capibara02"
+        app:civ_border_color="#D7B692"
+        app:civ_border_width="6dp"
+        app:civ_circle_background_color="#FFFFFF"
+
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/tvBienvenidaMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardMenuPrincipal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="60dp"
+
+        android:layout_marginTop="40dp"
+
+        app:cardElevation="8dp"
+
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/imgPerfilMenu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBienvenidaMenu">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="24dp"
-            android:paddingTop="60dp"> <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMenuProductos"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="16dp"
-            android:text="PRODUCTOS"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            app:backgroundTint="#4A3424"
-            app:cornerRadius="30dp"
-            app:icon="@android:drawable/ic_menu_agenda"
-            app:iconGravity="textEnd"
-            app:iconTint="#FFFFFF" />
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="MENÚ PRINCIPAL"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMenuProductos"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="16dp"
+                android:text="PRODUCTOS"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                app:backgroundTint="#4A3424"
+                app:cornerRadius="30dp"
+                app:icon="@android:drawable/ic_menu_agenda"
+                app:iconGravity="textEnd"
+                app:iconTint="#FFFFFF" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnMenuVentas"
@@ -113,7 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#D3D3D3"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -125,17 +159,5 @@
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgPerfilMenu"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/logo_capibara02"
-        app:civ_border_color="#D7B692"
-        app:civ_border_width="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardMenuPrincipal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardMenuPrincipal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
