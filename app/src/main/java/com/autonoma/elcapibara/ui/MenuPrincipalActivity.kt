@@ -2,6 +2,8 @@ package com.autonoma.elcapibara.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.autonoma.elcapibara.R
@@ -14,59 +16,53 @@ class MenuPrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
 
-        // Enlazamos los nuevos botones marrones de tu diseño
+        // 1. Enlazamos los botones principales
         val btnProductos = findViewById<MaterialButton>(R.id.btnMenuProductos)
         val btnVentas = findViewById<MaterialButton>(R.id.btnMenuVentas)
         val btnInventario = findViewById<MaterialButton>(R.id.btnMenuInventario)
         val btnReportes = findViewById<MaterialButton>(R.id.btnMenuReportes)
 
-        // --- PROGRAMAMOS LOS CLICS ---
-
-        // 1. Productos (Próximamente)
+        // 2. Programamos los clics de los botones principales
         btnProductos.setOnClickListener {
             Toast.makeText(this, "Módulo de Productos: Próximamente", Toast.LENGTH_SHORT).show()
         }
 
-        // 2. Registrar Venta (Próximamente)
         btnVentas.setOnClickListener {
             Toast.makeText(this, "Módulo de Ventas: Próximamente", Toast.LENGTH_SHORT).show()
         }
 
-        // 3. Inventario (¡Este sí nos lleva a la pantalla que ya hicimos!)
         btnInventario.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        // 4. Reportes (Próximamente)
         btnReportes.setOnClickListener {
             Toast.makeText(this, "Módulo de Reportes: Próximamente", Toast.LENGTH_SHORT).show()
         }
-    }
 
-    // --- TEMPORALMENTE DESACTIVAMOS LOS TRES PUNTITOS ---
-    // (Como el error dice que no encuentra R.menu.menu_principal,
-    // lo mejor es comentar esto por ahora para que puedas correr la app.
-    // Más adelante podemos crear el menú de cerrar sesión con calma).
+        // 3. Botón flotante de Cerrar Sesión (El que activa el menú emergente)
+        val btnCerrarSesion = findViewById<ImageView>(R.id.btnCerrarSesionIcono)
 
-    /*
-    override fun onCreateOptionsMenu(menu: android.view.Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_principal, menu)
-        return true
-    }
+        btnCerrarSesion.setOnClickListener { view ->
+            // Creamos y mostramos el Popup
+            val popup = PopupMenu(this, view)
+            popup.menuInflater.inflate(R.menu.popup_cerrar_sesion, popup.menu)
 
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.item_cerrar_sesion -> {
-                FirebaseAuth.getInstance().signOut()
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-                finish()
-                true
+            popup.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.item_cerrar_sesion_popup -> {
+                        // Lógica para salir de forma segura
+                        FirebaseAuth.getInstance().signOut()
+                        val intent = Intent(this, LoginActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                        true
+                    }
+                    else -> false
+                }
             }
-            else -> super.onOptionsItemSelected(item)
+            popup.show()
         }
     }
-    */
 }
