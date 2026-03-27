@@ -16,6 +16,23 @@ class MenuPrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
 
+        // --- SALUDO INTELIGENTE ---
+        // 1. Enlazamos el texto del título en la pantalla
+        val tvBienvenida = findViewById<android.widget.TextView>(R.id.tvBienvenidaMenu)
+
+        // 2. Le preguntamos a Firebase quién es el usuario que acaba de entrar
+        val usuarioActual = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser
+
+        // 3. Rescatamos su nombre (si por alguna razón no tiene, pondrá "USUARIO" por defecto)
+        val nombreCompleto = usuarioActual?.displayName ?: "USUARIO"
+
+        // 4. (Opcional pero recomendado) Cortamos el nombre para usar solo el primer nombre y que no se desborde la pantalla
+        val primerNombre = nombreCompleto.split(" ")[0].uppercase()
+
+        // 5. Reescribimos el texto de la pantalla con el nombre real
+        tvBienvenida.text = "BIENVENIDO\n$primerNombre"
+        // --------------------------
+
         // 1. Enlazamos los botones principales
         val btnProductos = findViewById<MaterialButton>(R.id.btnMenuProductos)
         val btnVentas = findViewById<MaterialButton>(R.id.btnMenuVentas)
