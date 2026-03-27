@@ -1,107 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="45dp">
+    tools:context=".ui.MainActivity">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imgFondoRegistro"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo_form02"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVolverMenu"
+        android:layout_width="97dp"
+        android:layout_height="47dp"
+        android:text="VOLVER"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+
+        app:backgroundTint="#4A3424"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgFondoRegistro"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <TextView
+        android:id="@+id/tvTituloRegistro"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginTop="70dp"
+        android:text="Registrar Productos"
+        android:textColor="#E8C396"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:shadowColor="#80000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTituloRegistro">
+
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrar Productos"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:layout_marginBottom="24dp"/>
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
-        <EditText
-            android:id="@+id/etNombre"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Nombre del producto"
-            android:inputType="text"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etPrecio"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Precio (ej. 2.50)"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etStock"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Cantidad en stock"
-            android:inputType="number"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etFecha"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Fecha de vencimiento (DD/MM/AA)"
-            android:inputType="text"
-            android:layout_marginBottom="12dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="12dp"
-            android:gravity="center_vertical">
-
-            <EditText
-                android:id="@+id/etImagen"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:hint="URL de la imagen"
-                android:inputType="textUri" />
-
-            <Button
-                android:id="@+id/btnSeleccionarFoto"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="📷 Foto"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="#4CAF50" />
+                android:orientation="vertical"
+                android:padding="24dp">
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/etNombreProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombre del producto"
+                    android:inputType="textCapSentences"
+                    android:layout_marginBottom="12dp"/>
 
-        <Button
-            android:id="@+id/btnGuardar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Guardar Producto"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp"/>
+                <EditText
+                    android:id="@+id/etPrecioProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Precio (ej. 2.50)"
+                    android:inputType="numberDecimal"
+                    android:layout_marginBottom="12dp"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="#DDDDDD"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"/>
+                <EditText
+                    android:id="@+id/etStockProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cantidad en stock"
+                    android:inputType="number"
+                    android:layout_marginBottom="12dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mi Inventario"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="12dp"/>
+                <EditText
+                    android:id="@+id/etFechaVencimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fecha de vencimiento (DD/MM/AA)"
+                    android:inputType="date"
+                    android:layout_marginBottom="12dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvProductos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
 
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+                    <EditText
+                        android:id="@+id/etUrlImagen"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="URL de la imagen"
+                        android:inputType="textUri"
+                        android:layout_marginEnd="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTomarFoto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="FOTO"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#5D4037"
+                        app:cornerRadius="20dp"
+                        app:icon="@android:drawable/ic_menu_camera"
+                        app:iconTint="#FFFFFF"/>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardarProducto"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="GUARDAR PRODUCTO"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#4A3424"
+                    app:cornerRadius="30dp"
+                    android:layout_marginBottom="24dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#D3D3D3"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mi Inventario"
+                    android:textColor="#4A3424"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvInventario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_producto" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

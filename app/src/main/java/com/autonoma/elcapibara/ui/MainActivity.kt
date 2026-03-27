@@ -3,7 +3,6 @@ package com.autonoma.elcapibara.ui
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.autonoma.elcapibara.R
 import com.autonoma.elcapibara.adapter.ProductoAdapter
 import com.autonoma.elcapibara.viewmodel.ProductoViewModel
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
@@ -50,16 +50,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // =======================================================
+        // --- ACTUALIZADO: BOTÓN "VOLVER" (AHORA SÓLIDO) ---
+        // =======================================================
+        // Ojo: Cambiamos 'TextView' por 'MaterialButton' y 'tvVolverMenu' por 'btnVolverMenu'
+        val btnVolver = findViewById<com.google.android.material.button.MaterialButton>(R.id.btnVolverMenu)
+
+        btnVolver.setOnClickListener {
+            finish() // Cierra esta pantalla y revela el Menú
+        }
+        // =======================================================
+
         viewModel = ViewModelProvider(this)[ProductoViewModel::class.java]
 
-        val etNombre = findViewById<EditText>(R.id.etNombre)
-        val etPrecio = findViewById<EditText>(R.id.etPrecio)
-        val etStock = findViewById<EditText>(R.id.etStock)
-        val etFecha = findViewById<EditText>(R.id.etFecha)
-        val etImagen = findViewById<EditText>(R.id.etImagen)
-        val btnGuardar = findViewById<Button>(R.id.btnGuardar)
-        val btnSeleccionarFoto = findViewById<Button>(R.id.btnSeleccionarFoto) // TU NUEVO BOTÓN
-        val rvProductos = findViewById<RecyclerView>(R.id.rvProductos)
+        // --- AQUÍ ESTÁ LA MAGIA: ACTUALIZAMOS LOS NOMBRES (IDs) AL NUEVO DISEÑO ---
+        val etNombre = findViewById<EditText>(R.id.etNombreProducto)
+        val etPrecio = findViewById<EditText>(R.id.etPrecioProducto)
+        val etStock = findViewById<EditText>(R.id.etStockProducto)
+        val etFecha = findViewById<EditText>(R.id.etFechaVencimiento)
+        val etImagen = findViewById<EditText>(R.id.etUrlImagen)
+
+        // Ojo: Ahora usamos MaterialButton para que respete tu diseño con bordes redondeados
+        val btnGuardar = findViewById<MaterialButton>(R.id.btnGuardarProducto)
+        val btnSeleccionarFoto = findViewById<MaterialButton>(R.id.btnTomarFoto)
+
+        val rvProductos = findViewById<RecyclerView>(R.id.rvInventario)
+        // -------------------------------------------------------------------------
 
         rvProductos.layoutManager = LinearLayoutManager(this)
 
@@ -77,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 etImagen.setText(productoQueVamosAEditar.imagenUrl)
 
                 idProductoEnEdicion = productoQueVamosAEditar.id
-                btnGuardar.text = "Actualizar Producto"
+                btnGuardar.text = "ACTUALIZAR PRODUCTO" // En mayúsculas para tu nuevo diseño
             }
         )
         rvProductos.adapter = adapter
@@ -89,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.obtenerListaDeProductos()
 
         // ==========================================
-        // ACCIÓN DE TU NUEVO BOTÓN VERDE
+        // ACCIÓN DE TU BOTÓN "FOTO" (AHORA MARRÓN)
         // ==========================================
         btnSeleccionarFoto.setOnClickListener {
             // Creamos un menú emergente con dos opciones
@@ -125,7 +141,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.actualizarProducto(idProductoEnEdicion!!, nombre, precio, stock, fecha, imagen)
                     Toast.makeText(this, "Actualizando producto...", Toast.LENGTH_SHORT).show()
                     idProductoEnEdicion = null
-                    btnGuardar.text = "Guardar Producto"
+                    btnGuardar.text = "GUARDAR PRODUCTO" // Volvemos al texto original
                 }
 
                 etNombre.text.clear()
@@ -153,7 +169,8 @@ class MainActivity : AppCompatActivity() {
             // OPCIÓN A: Si eligió una foto de la GALERÍA
             archivoRef.putFile(uri).addOnSuccessListener {
                 archivoRef.downloadUrl.addOnSuccessListener { linkDeDescarga ->
-                    findViewById<EditText>(R.id.etImagen).setText(linkDeDescarga.toString())
+                    // TAMBIÉN ACTUALIZAMOS EL ID AQUÍ ABAJO (etUrlImagen)
+                    findViewById<EditText>(R.id.etUrlImagen).setText(linkDeDescarga.toString())
                     Toast.makeText(this, "¡Foto lista! ✅", Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener {
@@ -168,7 +185,8 @@ class MainActivity : AppCompatActivity() {
 
             archivoRef.putBytes(data).addOnSuccessListener {
                 archivoRef.downloadUrl.addOnSuccessListener { linkDeDescarga ->
-                    findViewById<EditText>(R.id.etImagen).setText(linkDeDescarga.toString())
+                    // TAMBIÉN ACTUALIZAMOS EL ID AQUÍ ABAJO (etUrlImagen)
+                    findViewById<EditText>(R.id.etUrlImagen).setText(linkDeDescarga.toString())
                     Toast.makeText(this, "¡Foto lista! ✅", Toast.LENGTH_SHORT).show()
                 }
             }.addOnFailureListener {
@@ -176,4 +194,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-} // <-- Asegúrate de que esta llave final cierre tu MainActivity
+}

@@ -30,7 +30,7 @@ class MenuPrincipalActivity : AppCompatActivity() {
         val primerNombre = nombreCompleto.split(" ")[0].uppercase()
 
         // 5. Reescribimos el texto de la pantalla con el nombre real
-        tvBienvenida.text = "BIENVENIDO\n$primerNombre"
+        tvBienvenida.text = "BIENVENIDO(A)\n$primerNombre"
         // --------------------------
 
         // 1. Enlazamos los botones principales
