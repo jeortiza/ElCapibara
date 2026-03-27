@@ -57,9 +57,11 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "¡Bienvenido a El Capibara!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
+
+                    // --- CAMBIAMOS EL DESTINO AQUÍ ---
+                    val intent = Intent(this, MenuPrincipalActivity::class.java)
                     startActivity(intent)
-                    finish()
+                    finish() // Cerramos el Login
                 } else {
                     Toast.makeText(this, "Error: Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 }

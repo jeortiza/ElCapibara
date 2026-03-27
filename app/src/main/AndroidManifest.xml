@@ -30,6 +30,10 @@
             android:name=".ui.RegistroActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".ui.MenuPrincipalActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

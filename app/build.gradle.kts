@@ -52,4 +52,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.google.firebase:firebase-auth-ktx:22.3.1")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }
