@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">El Capibara</string>
+    <string name="app_name">BODEGA EL CAPIBARA</string>
+    <string name="app_description">Somos una bodega que ofrece productos frescos y variados, con un ambiente cercano y amigable. Aquí encontrarás lo mejor para tu día a día.</string>
+    <string name="continuar_login">Continuar al Login</string>
+    <string name="integrantes">• Dalia León\n• Junior Ortiz</string>
 </resources>
