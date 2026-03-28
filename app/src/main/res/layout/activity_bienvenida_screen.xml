@@ -18,6 +18,7 @@
 
     <!-- Lista de integrantes en viñetas -->
 
+
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="match_parent"
