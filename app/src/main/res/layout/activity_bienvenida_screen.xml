@@ -1,0 +1,91 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo"
+    tools:context=".BienvenidaScreen">
+
+    <!-- Nombre de la aplicación en grande -->
+
+    <!-- Animación Lottie (círculo) -->
+
+    <!-- Imagen dentro del círculo -->
+
+    <!-- Texto Integrantes -->
+
+    <!-- Lista de integrantes en viñetas -->
+
+
+    <TextView
+        android:id="@+id/appTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:gravity="center"
+        android:text="BODEGA EL CAPIBARA"
+        android:textColor="@android:color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieView"
+        android:layout_width="394dp"
+        android:layout_height="337dp"
+        android:layout_marginTop="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="circulo1.json"
+        app:lottie_loop="true" />
+
+    <ImageView
+        android:id="@+id/capibaraImage"
+        android:layout_width="380dp"
+        android:layout_height="332dp"
+        android:contentDescription="Logo Capibara"
+        android:src="@drawable/capi"
+        app:layout_constraintBottom_toBottomOf="@id/lottieView"
+        app:layout_constraintEnd_toEndOf="@id/lottieView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/lottieView"
+        app:layout_constraintTop_toTopOf="@id/lottieView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/integrantesTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Integrantes:"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lottieView" />
+
+    <TextView
+        android:id="@+id/integrantesLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/integrantes"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/integrantesTitulo" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,8 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ElCapibara">
+
+        <!-- Bienvenida como pantalla inicial -->
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".BienvenidaScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,18 +24,16 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="false" />
+        <!-- Pantalla de descripción -->
+        <activity android:name=".DescripcionActivity" android:exported="false"/>
 
-        <activity
-            android:name=".ui.RegistroActivity"
-            android:exported="false" />
+        <!-- Login -->
+        <activity android:name=".ui.LoginActivity" android:exported="true"/>
 
-        <activity
-            android:name=".ui.MenuPrincipalActivity"
-            android:exported="false" />
-
+        <!-- Otras pantallas -->
+        <activity android:name=".ui.MainActivity" android:exported="false" />
+        <activity android:name=".ui.RegistroActivity" android:exported="false" />
+        <activity android:name=".ui.MenuPrincipalActivity" android:exported="false" />
     </application>
 
 </manifest>
